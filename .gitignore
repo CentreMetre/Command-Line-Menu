@@ -1,0 +1,17 @@
+#Build Files
+/build/
+/build/*
+/dist/
+/dist/*
+
+#Release Files
+/release/
+/release/*
+
+#NetBeans Ignore
+/nbproject/
+/nbproject/*
+build.xml
+
+#Notes
+*.mynote

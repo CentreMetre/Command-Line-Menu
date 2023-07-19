@@ -1,8 +1,7 @@
 package climenuhelper;
 
 /**
- * Used for {@link climenuhelper.CLIMenu#hasZeroStart hasZeroStart}
- * so a switch statement can be used
+ * A TRUE and FALSE enum for {@link climenuhelper.CLIMenu#CLIMenu(java.util.ArrayList, java.lang.String, climenuhelper.HasZeroStartOption, climenuhelper.PrintMenuNowOption...) CLIMenu constructor}. 
  * @author Martin McLaren
  */
 public enum HasZeroStartOption {

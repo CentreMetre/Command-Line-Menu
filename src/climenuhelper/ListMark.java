@@ -7,8 +7,8 @@ package climenuhelper;
 public class ListMark{
     /**
      * Converts the list mark format into a list mark for the menu.
-     * @param keyIndex The key of the current item in {@link climenuhelper.
-     * CLIMenu#keysAndValues keysAndValues}.
+     * @param keyIndex The key of the current item in
+     * {@link climenuhelper.CLIMenu#keysAndValues keysAndValues}.
      * @param listMarkFormat The format wanted for the list mark in each line in the menu.
      * @return The full list mark as a string to prepend the line option in the menu.
      */
@@ -35,7 +35,8 @@ public class ListMark{
     
     /**
      * Validates there is a placeholder character in the list mark format.
-     * @param listMarkFormat 
+     * @param listMarkFormat The format the method user wants the list marker to have. Must include
+     * the placeholder character '#'.
      * @return The current index of the iteration used for replacing it in {@link ListMark#convertNumberedListMark(int, java.lang.String) the converter}.
      */
     public static int validateListMarkFormat(String listMarkFormat)
