@@ -5,8 +5,8 @@
 /dist/*
 
 #Release Files
-/release/
-/release/*
+/releases/
+/releases/*
 
 #NetBeans Ignore
 /nbproject/
