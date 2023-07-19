@@ -11,7 +11,4 @@
 #NetBeans Ignore
 /nbproject/
 /nbproject/*
-build.xml
-
-#Notes
-*.mynote
+/build.xml
