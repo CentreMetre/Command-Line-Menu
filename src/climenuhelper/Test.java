@@ -16,6 +16,10 @@ public class Test
     {
         //String[] options = {"Start", "Settings", "Exit"};
         
+        int num;
+        
+        test(num);
+        
         ArrayList<String> options = new ArrayList<>();
         
         options.add("Start");
@@ -29,4 +33,9 @@ public class Test
         //mainMenu.printMenu();
     }
     
+    
+    public static void test(int error)
+    {
+        System.out.println(error);
+    }
 }

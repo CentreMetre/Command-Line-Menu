@@ -5,14 +5,15 @@ package climenuhelper;
  * @author Martin McLaren
  */
 public class ListMark{
+    
     /**
      * Converts the list mark format into a list mark for the menu.
-     * @param keyIndex The key of the current item in
+     * @param keyListIndex The key of the current item in
      * {@link climenuhelper.CLIMenu#keysAndValues keysAndValues}.
      * @param listMarkFormat The format wanted for the list mark in each line in the menu.
      * @return The full list mark as a string to prepend the line option in the menu.
      */
-    public static String convertNumberedListMark(int keyIndex, String listMarkFormat)
+    public static String convertNumberedListMark(int keyListIndex, String listMarkFormat)
     {
         int placeholderIndex = validateListMarkFormat(listMarkFormat);
         
@@ -25,7 +26,7 @@ public class ListMark{
         String[] listMarkFormatSplit = listMarkFormat.split("#");
         
         listMarkFormatArray[0] = listMarkFormatSplit[0];
-        listMarkFormatArray[1] = Integer.toString(keyIndex);
+        listMarkFormatArray[1] = Integer.toString(keyListIndex);
         listMarkFormatArray[2] = listMarkFormatSplit[1];
         
         String listMark = String.join("", listMarkFormatArray);

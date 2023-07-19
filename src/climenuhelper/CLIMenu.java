@@ -3,6 +3,7 @@ package climenuhelper;
 import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.util.logging.Level;
 
 /**
@@ -310,8 +311,120 @@ public class CLIMenu {
         return keys;
     }
     
+    /**
+     * Validates input via parameter to check it equals and entry in
+     * {@link CLIMenu#optionKeys optionKeys}.
+     * @param userInput The input from the user when they want to select an item of the list. 
+     * @return True if the input is valid. False if it isn't. Up to the dev user of the method to
+     * decide what to do after return.
+     */
+    public boolean isInputEqualToListItem(int userInput)
+    {
+        if (checkUserInput(userInput))
+        {
+            return true;
+        }
+        
+        System.out.printf("Input invalid, not found in list. Your input: %d.", userInput);
+        return false;
+    }
     
+    /**
+     * Validates input via parameter to check it equals and entry in
+     * {@link CLIMenu#optionKeys optionKeys}. Can have custom error message. 
+     * @param userInput The input from the user when they want to select an item of the list. 
+     * @param errorMessage Custom error message to show the user if the input isnt valid.
+     * @return True if the input is valid. False if it isn't. Up to the dev user of the method to
+     * decide what to do after return.
+     */
+    public boolean isInputEqualToListItem(int userInput, String errorMessage)
+    {
+        if (checkUserInput(userInput))
+        {
+            return true;
+        }
+        
+        System.out.println(errorMessage);
+        return false;
+    }
     
+    /**
+     * When called it asks for input via CLI while the input doesn't equal any entries in
+     * {@link CLIMenu#optionKeys optionKeys}.
+     * @return The int the user input that is valid.
+     */
+    public int askForInputLoop()
+    {
+        boolean isUserInputValid = false;
+        boolean isFirst = true;
+        
+        String errorMessage;
+        
+        Scanner inputScanner = new Scanner(System.in);
+        
+        int userInput;
+        
+        do
+        {
+            isFirst = false;
+            
+            userInput = inputScanner.nextInt();
+            
+            if (!checkUserInput(userInput))
+            {
+                System.out.printf("Input invalid, not found in list. Your input: %d. \n",
+                        userInput);
+            }
+            
+        } while (!checkUserInput(userInput));
+        
+        return userInput;
+    }
+    
+    /**
+     * When called it asks for input via CLI while the input doesn't equal any entries in
+     * {@link CLIMenu#optionKeys optionKeys}.
+     * @param errorMessage Custom error message.
+     * @return The int the user input that is valid.
+     */
+    public int askForInputLoop(String errorMessage)
+    {
+        
+        Scanner inputScanner = new Scanner(System.in);
+        
+        int userInput;
+        
+        do
+        {
+            userInput = inputScanner.nextInt();
+            
+            if (!checkUserInput(userInput))
+            {
+                System.out.println(errorMessage);
+            }
+            
+        } while (!checkUserInput(userInput));
+        
+        return userInput;
+    }
+    
+    /**
+     * Iterates through {@link CLIMenu#optionKeys optionKeys} to check if the input was valid.
+     * @param userInput
+     * @return 
+     */
+    private boolean checkUserInput(int userInput)
+    {
+        for (int num : optionKeys)
+        {
+            if (num == userInput)
+            {
+                return true;
+            }
+        }
+        //else return false
+        return false;
+    }
 }
 
 //It's PayDay Fellas
